@@ -1,0 +1,11 @@
+[package]
+name = "rust-examples"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+strm-privacy-driver = "0.1.0"
+strmprivacy_schema_strmprivacy_demo = "1.0.3"
+tokio = "1.18.2"
