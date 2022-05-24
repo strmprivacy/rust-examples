@@ -6,6 +6,7 @@ use std::time::Duration;
 use strm_privacy_driver::error::Error;
 use strm_privacy_driver::{StrmPrivacyClient, StrmStatusCode};
 use strmprivacy_schema_strmprivacy_demo::{DemoEvent, StrmMeta};
+use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -49,6 +50,7 @@ async fn main() -> Result<(), Error> {
 // create new event based on the example schema
 fn create_event() -> DemoEvent {
     let consent_level = rand::thread_rng().gen_range(0..4);
+    let uuid = Uuid::new_v4();
 
     DemoEvent {
         strm_meta: StrmMeta {
@@ -59,7 +61,7 @@ fn create_event() -> DemoEvent {
             billing_id: None,
             consent_levels: vec![consent_level],
         },
-        unique_identifier: Some("unique".to_string()),
+        unique_identifier: Some(uuid.to_string()),
         consistent_value: "consistent".to_string(),
         some_sensitive_value: Some("sensitive".to_string()),
         not_sensitive_value: Some("not sensitive".to_string()),
