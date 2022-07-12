@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-strm-privacy-driver = "0.1.0"
+strm-privacy-driver = "0.2.0"
 strmprivacy_schema_strmprivacy_demo = "1.0.3"
 tokio = "1.18.2"
 rand = "0.8.5"

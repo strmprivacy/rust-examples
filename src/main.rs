@@ -16,17 +16,12 @@ async fn main() -> Result<(), Error> {
         panic!("Wrong amount of arguments")
     }
 
-    let billing_id = args.get(1).unwrap();
     let client_id = args.get(2).unwrap();
     let client_secret = args.get(3).unwrap();
 
     println!("initializing client");
-    let mut strm_privacy_client = StrmPrivacyClient::default(
-        billing_id.to_string(),
-        client_id.to_string(),
-        client_secret.to_string(),
-    )
-    .await?;
+    let mut strm_privacy_client =
+        StrmPrivacyClient::default(client_id.to_string(), client_secret.to_string()).await?;
 
     println!("sending events..");
     loop {
