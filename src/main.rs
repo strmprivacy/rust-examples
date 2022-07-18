@@ -4,29 +4,24 @@ use std::thread::sleep;
 use std::time::Duration;
 
 use strm_privacy_driver::error::Error;
+use strm_privacy_driver::test::demo::{DemoEvent, StrmMeta};
 use strm_privacy_driver::{StrmPrivacyClient, StrmStatusCode};
-use strmprivacy_schema_strmprivacy_demo::{DemoEvent, StrmMeta};
 use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 4 {
+    if args.len() < 3 {
         panic!("Wrong amount of arguments")
     }
 
-    let billing_id = args.get(1).unwrap();
-    let client_id = args.get(2).unwrap();
-    let client_secret = args.get(3).unwrap();
+    let client_id = args.get(1).unwrap();
+    let client_secret = args.get(2).unwrap();
 
     println!("initializing client");
-    let mut strm_privacy_client = StrmPrivacyClient::default(
-        billing_id.to_string(),
-        client_id.to_string(),
-        client_secret.to_string(),
-    )
-    .await?;
+    let mut strm_privacy_client =
+        StrmPrivacyClient::default(client_id.to_string(), client_secret.to_string()).await?;
 
     println!("sending events..");
     loop {

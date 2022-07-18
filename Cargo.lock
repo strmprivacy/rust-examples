@@ -893,10 +893,10 @@ checksum = "3582f63211428f83597b51b2ddb88e2a91a9d52d12831f9d08f5e624e8977422"
 
 [[package]]
 name = "rust-examples"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "rand 0.8.5",
- "strm-privacy-driver",
+ "strm-privacy-driver 1.0.1",
  "strmprivacy_schema_strmprivacy_demo",
  "tokio",
  "uuid 1.0.0",
@@ -1038,13 +1038,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "strm-privacy-driver"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d40f837419c8919afb545621a62a6fd1748f96b06ef8e2e079c5e85152fbbe3"
+dependencies = [
+ "avro-rs",
+ "reqwest",
+ "serde",
+ "tokio",
+]
+
+[[package]]
 name = "strmprivacy_schema_strmprivacy_demo"
 version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4c00cd9c5e8921b5ffbcb859ba8283ac772900df69abe39ab670c659a181b924"
 dependencies = [
  "serde",
- "strm-privacy-driver",
+ "strm-privacy-driver 0.1.0",
 ]
 
 [[package]]
